@@ -1,4 +1,5 @@
 ﻿using DogGo2.Models;
+using DogGo2.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -13,7 +14,8 @@ namespace DogGo2.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        // GET: Walkers
+        public ActionResult Index()
         {
             return View();
         }
