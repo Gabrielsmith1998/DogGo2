@@ -41,3 +41,10 @@ WHERE Id = 9;
 
 DELETE FROM Owner
 WHERE Id = 10;
+
+SELECT *
+FROM Dog;
+
+SELECT Id, [Name], OwnerId, Breed, Notes, ImageUrl
+FROM Dog;
+
