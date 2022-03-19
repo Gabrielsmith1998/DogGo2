@@ -85,13 +85,15 @@ namespace DogGo2.Controllers
         public ActionResult Edit(int id)
         {
             Owner owner = _ownerRepo.GetOwnerById(id);
+            List<Neighborhood> neighborhoods = _neighborhoodRepo.GetAll();
 
-            if (owner == null)
+            OwnerFormViewModel vm = new OwnerFormViewModel()
             {
-                return NotFound();
-            }
+                Owner = owner,
+                Neighborhoods = neighborhoods
+            };
 
-            return View(owner);
+            return View(vm);
         }
 
         // POST: OwnersController/Edit/5
@@ -107,7 +109,7 @@ namespace DogGo2.Controllers
             }
             catch
             {
-                return View(owner);
+                return View();
             }
         }
 
