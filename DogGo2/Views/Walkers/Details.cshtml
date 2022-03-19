@@ -36,5 +36,10 @@
         }
       </div>
     </section>
-  </div>
+    <section class="col-8 container mt-5">
+      <h1 class="text-left">Walk Duration Total</h1>
+        <div>
+          @Model.Walks.Sum(i => i.Duration)
+         </div>
+    </section>
 </div>
