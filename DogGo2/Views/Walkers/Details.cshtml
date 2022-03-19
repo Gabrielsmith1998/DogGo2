@@ -1,48 +1,40 @@
-﻿@model DogGo2.Models.Walker
+﻿@model DogGo2.Models.ViewModels.WalkerProfileViewModel 
 
-@{
-    ViewData["Title"] = "Details";
-}
-
-<h1>Details</h1>
-
+@{ ViewData["Title"] ="Profile"; }
 <div>
-    <h4>Walker</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Id)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NeighborhoodId)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NeighborhoodId)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Neighborhood)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Neighborhood.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            <img class="bg-info" src="@Model.ImageUrl" alt="avatar" />
-        </dt>
-        <dd class = "col-sm-10">
-            <img class="bg-info" src="@Model.ImageUrl" alt="avatar" />
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+  <h1 class="mb-4">@Model.Walker.Name</h1>
+
+  <section class="col-sm-2">
+     <img class="bg-info" src="@Model.Walker.ImageUrl" alt="avatar" />
+    <div>
+      <label class="font-weight-bold">Neighborhood:</label>
+      <span>@Model.Walker.Neighborhood.Name</span>
+    </div>
+  </section>
+
+  <hr class="mt-5" />
+  <div class="clearfix"></div>
+
+  <div class="row">
+    <section class="col-8 container mt-5">
+      <h1 class="text-left">Walks</h1>
+
+      <div class="row">
+        @foreach (Walks walks in Model.Walks) {
+        <div class="card m-4" style="width: 18rem;">
+          <div class="card-body">
+            <div>
+              <label class="font-weight-bold">Duration:</label>
+              <span>@walks.Duration</span>
+            </div>
+            <div>
+              <label class="font-weight-bold">Date:</label>
+              <span>@walks.Date</span>
+            </div>
+          </div>
+        </div>
+        }
+      </div>
+    </section>
+  </div>
 </div>

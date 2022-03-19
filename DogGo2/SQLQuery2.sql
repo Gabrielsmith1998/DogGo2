@@ -48,3 +48,7 @@ FROM Dog;
 SELECT Id, [Name], OwnerId, Breed, Notes, ImageUrl
 FROM Dog;
 
+                        SELECT [Date], Duration, WalkerId, DogId
+                        FROM Walks
+                        WHERE WalkerId = 1 AND DogId = 1
+

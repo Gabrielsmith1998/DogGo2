@@ -1,56 +1,40 @@
 ﻿using DogGo2.Models;
-using DogGo2.Models.ViewModels;
 using DogGo2.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DogGo2.Controllers
 {
-    public class WalkersController : Controller
+    public class WalksController : Controller
     {
-
-        private readonly IWalkerRepository _walkerRepo;
         private readonly IWalksRepository _walksRepo;
 
         // ASP.NET will give us an instance of our Walker Repository. This is called "Dependency Injection"
-        public WalkersController(
-            IWalkerRepository walkerRepository,
-            IWalksRepository walksRepository)
+        public WalksController(IWalksRepository walksRepository)
         {
-            _walkerRepo = walkerRepository;
             _walksRepo = walksRepository;
         }
-
+        // GET: WalksController1
         public ActionResult Index()
         {
-            List<Walker> walkers = _walkerRepo.GetAllWalkers();
+            List<Walks> walks = _walksRepo.GetAllWalks();
 
-            return View(walkers);
+            return View(walks);
         }
 
-        // GET: WalkersController/Details/5
-
+        // GET: WalksController1/Details/5
         public ActionResult Details(int id)
         {
-            Walker walker = _walkerRepo.GetWalkerById(id);
-            List<Walks> walks = _walksRepo.GetWalksByWalkerId(walker.Id);
-
-            WalkerProfileViewModel vm = new WalkerProfileViewModel()
-            {
-                Walker = walker,
-                Walks = walks
-            };
-
-            return View(vm);
+            return View();
         }
 
-        // GET: WalkersController/Create
+        // GET: WalksController1/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: WalkersController/Create
+        // POST: WalksController1/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -65,13 +49,13 @@ namespace DogGo2.Controllers
             }
         }
 
-        // GET: WalkersController/Edit/5
+        // GET: WalksController1/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: WalkersController/Edit/5
+        // POST: WalksController1/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -86,13 +70,13 @@ namespace DogGo2.Controllers
             }
         }
 
-        // GET: WalkersController/Delete/5
+        // GET: WalksController1/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: WalkersController/Delete/5
+        // POST: WalksController1/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

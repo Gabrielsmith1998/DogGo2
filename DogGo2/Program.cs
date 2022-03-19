@@ -8,6 +8,7 @@ builder.Services.AddTransient<IWalkerRepository, WalkerRepository>();
 builder.Services.AddTransient<IOwnerRepository, OwnerRepository>();
 builder.Services.AddTransient<IDogRepository, DogRepository>();
 builder.Services.AddTransient<INeighborhoodRepository, NeighborhoodRepository>();
+builder.Services.AddTransient<IWalksRepository, WalkRepository>();
 
 var app = builder.Build();
 
