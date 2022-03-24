@@ -1,9 +1,12 @@
-﻿namespace DogGo2.Models
+﻿using System.ComponentModel;
+
+namespace DogGo2.Models
 {
     public class Walker
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        [DisplayName("Neighborhood Id")]
         public int NeighborhoodId { get; set; }
         public string NeighborhoodName { get; set;}
         public string ImageUrl { get; set; }

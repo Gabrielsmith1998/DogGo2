@@ -1,10 +1,13 @@
-﻿namespace DogGo2.Models
+﻿using System.ComponentModel;
+
+namespace DogGo2.Models
 {
     public class Owner
     {
         public int Id { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
+        [DisplayName("Neighborhood Id")]
         public int NeighborhoodId { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
