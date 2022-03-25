@@ -159,7 +159,9 @@ namespace DogGo2.Repositories
                     cmd.Parameters.AddWithValue("@breed", dog.Breed);
                     cmd.Parameters.AddWithValue("@id", dog.Id);
 
-                    cmd.ExecuteNonQuery();
+                    int newlyCreatedId = (int)cmd.ExecuteScalar();
+
+                    dog.Id = newlyCreatedId;
                 }
             }
         }
