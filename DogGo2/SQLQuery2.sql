@@ -1,6 +1,9 @@
 ﻿SELECT *
 FROM Owner
 
+SELECT *
+FROM Neighborhood
+
 SELECT w.NeighborhoodId
 FROM Walker w
 LEFT JOIN Neighborhood N on w.NeighborhoodId = N.Id
