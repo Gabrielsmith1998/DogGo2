@@ -137,13 +137,13 @@ namespace DogGo2.Repositories
                                 [Name] = @name, 
                                 Email = @email, 
                                 Address = @address, 
-                                Phone = @phone, 
+                                Phone = @phoneNumber, 
                                 NeighborhoodId = @neighborhoodId
                             WHERE Id = @id";
 
                     cmd.Parameters.AddWithValue("@name", owner.Name);
                     cmd.Parameters.AddWithValue("@email", owner.Email);
-                    cmd.Parameters.AddWithValue("@phone", owner.Phone);
+                    cmd.Parameters.AddWithValue("@phoneNumber", owner.Phone);
                     cmd.Parameters.AddWithValue("@address", owner.Address);
                     cmd.Parameters.AddWithValue("@neighborhoodId", owner.NeighborhoodId);
                     cmd.Parameters.AddWithValue("@id", owner.Id);

@@ -55,3 +55,10 @@ FROM Dog;
                         FROM Walks
                         WHERE WalkerId = 1 AND DogId = 1
 
+                                            SELECT Id, [Name], [Address], NeighborhoodId, Phone, Email
+                        FROM Owner
+
+                SELECT w.Id, w.[Name] AS WalkerName, w.ImageUrl, w.NeighborhoodId, n.[Name] AS HoodName
+                FROM Walker w
+                LEFT JOIN Neighborhood n on w.NeighborhoodId = n.id
+                WHERE w.NeighborhoodId = 1
